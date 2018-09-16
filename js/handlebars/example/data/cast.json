@@ -1,0 +1,32 @@
+{
+    "characters": [
+        {
+            "name": "Jon Snow",
+            "shortCode": "jon-snow",
+            "actor": "Kit Harrington",
+            "house": "Stark",
+            "location": "The Wall"
+        },
+        {
+            "name": "Tyrion Lannister",
+            "shortCode": "tyrion",
+            "actor": "Peter Dinklange",
+            "house": "Lannister",
+            "location": null
+        },
+        {
+            "name": "Brienne of Tarth",
+            "shortCode": "brienne",
+            "actor": "Gwendoline Christie",
+            "house": "Clegane",
+            "location": "In search of Sansa Stark"
+        },
+        {
+            "name": "Eddard Stark",
+            "shortCode": "ned-stark",
+            "actor": "Sean Bean",
+            "house": "Stark",
+            "location": "Winterfell"
+        }
+    ]
+}

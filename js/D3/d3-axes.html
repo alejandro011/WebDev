@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>d3-svg</title>
+    <link type="text/css" rel="stylesheet" href="style.css"></link>
+    <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+    <script type="text/javascript" src="d3/d3.min.js"></script>
+</head>
+
+<body>
+
+    <script>
+        //Like always, we have defined our SVG width and height as variables.
+        var width = 400,
+            height = 400;
+
+        //defines our dataset as an array.
+        var x_data = [10, 15, 20, 25, 30];
+
+        var y_data = [10, 15, 20, 25, 30];
+
+        // Append SVG 
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        // Create scale: next, we create our SVG element and set its width and height
+        var x_scale = d3.scaleLinear()
+            .domain([0, d3.max(x_data)])
+            .range([0, width - 100]);
+
+        var y_scale = d3.scaleLinear()
+            .domain([0, d3.max(y_data)])
+            .range([height / 2, 0]);
+
+        // We use d3.axisBottom to create our x-axis and provide it with the scale we defined earlier.
+        var x_axis = d3.axisBottom()
+            .scale(x_scale);
+
+        var y_axis = d3.axisLeft()
+            .scale(y_scale);
+
+        //Append group and insert axis
+
+        // We apply a translate transformation to align the y-axis to 50px right 
+        // of the origin and 10px to the bottom of the origin.
+        svg.append("g")
+            .attr("transform", "translate(50, 10)")
+            .call(y_axis);
+
+        var xAxisTranslate = height / 2 + 10;
+
+        svg.append("g")
+            .attr("transform", "translate(50, " + xAxisTranslate + ")")
+            .call(x_axis)
+
+
+
+        // Similarly, we can create a vertical axis using d3.axisLeft() function as shown below
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+/*external style sheet
+Color names should be avoided...
+Best to use color codes
+*/
+body{
+    font-family: 'Roboto', sans-serif;
+    text-align: justify;
+}
+
+h1{
+    font-family: 'Roboto', sans-serif;
+    color:rgb(19, 166, 235);
+    background-color:rgb(235, 229, 217);
+    border-style: solid;
+    border-width: thick;
+    border-color: rgb(19, 166, 235);
+    border-radius: 15px 50px;
+    /*color: #555;
+    background-color:#B3B3B3;*/
+    font-size: 80px; /*use percentages to resize*/
+    text-align: center; /*right,left,justify*/
+    text-align: justify;
+    line-height: 200%;
+    padding-left: 25px;
+}
+
+h2{ 
+    color:rgb(235, 229, 217); /* red FF0000*/
+    background-color:rgb(19, 166, 235);
+    /*background-color:#555; /*#FFFF00*/ /**/
+    font-family: 'Roboto', sans-serif;
+    font-style: bold;
+    font-size: 37px; /*use percentages to resize*/
+    width: 100%;
+    
+    border-radius: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+    /*height: 50px;*/
+} 
+
+h3{ 
+    font-family: 'Roboto', sans-serif;
+    font-style: bold;
+    font-size: 29px; /*use percentages to resize*/
+    width: 100%;
+    /*height: 50px;*/
+} 
+
+
+p{
+    /*font-family: sans-serif;*/
+    /*text-align: justify;*/
+    margin: 15px 300px  10px 10px;
+    /*font: 400 14px/1.6 "Open Sans",sans-serif;*/
+    /*font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-variant-east-asian: normal;
+    /*font-weight: 400;*/
+    
+    /*font-stretch: normal;*/
+    font-size: 18px;
+    line-height: 1.6;
+    /*font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto', sans-serif;*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    
+    color: #555;
+    font-weight: 100;
+    
+}
+
+img{
+    
+    margin: 15px 20px  10px 10px;
+}
+
+#floats{
+    float:right;
+}
+
+mark{
+    background-color: #f1e255;
+}
+
+
+
+  

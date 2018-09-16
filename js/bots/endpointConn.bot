@@ -1,0 +1,15 @@
+{
+    "name": "endpointConn",
+    "description": "",
+    "secretKey": "",
+    "services": [
+        {
+            "appId": "",
+            "id": "2e76f990-65c2-11e8-b06d-b90ff3c9aab2",
+            "type": "endpoint",
+            "appPassword": "",
+            "endpoint": "http://localhost:3978/api/messages",
+            "name": "http://localhost:3978/api/messages"
+        }
+    ]
+}

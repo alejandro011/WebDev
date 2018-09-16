@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TITLE GOES HERE</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+
+<body>
+    MAIN CONTENT GOES HERE
+
+    <div>
+        <p>Normal paragraph</p>
+
+        <p class="red">Red paragraph</p>
+    </div>
+
+    <ol>
+        <li id="some-id">Unique element</li>
+        <li>Another list element</li>
+        <li>
+            <p>Paragraph inside list element</p>
+            <p>Second paragraph</p>
+        </li>
+    </ol>
+
+    <script>
+        // DOM API
+        console.log(document.getElementById('some-id'));
+        // <li id="some-id">Unique element</li>
+        console.log(document.getElementsByTagName('p').length);
+        // 4
+        var reds = document.getElementsByClassName('red');
+        // [<p class="red">Red paragraph</p>]
+        console.log(reds);
+        console.log(reds[0].innerText);
+        // "Red paragraph"
+
+        // D3 Selection API
+        //var d3 = require("d3");
+        //import * as d3 from "d3";
+        d3.select('p').size(); // select() only finds one
+        // 1
+        d3.selectAll('p').size(); // selectAll() finds all
+        // 4
+        var reds = d3.selectAll('.red');
+        // [ > Array[1] ]
+        reds.text();
+        // "Red paragraph"
+    </script>
+
+</body>
+
+</html>

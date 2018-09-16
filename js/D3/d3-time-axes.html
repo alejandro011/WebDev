@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>d3-plot</title>
+    <link type="text/css" rel="stylesheet" href="style.css"></link>
+    <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+    <script type="text/javascript" src="d3/d3.min.js"></script>
+</head>
+
+<body>
+
+    <script>
+        var numbers = [5, 4, 10, 1],
+            data = [{
+                    date: '2014-01-01',
+                    amount: 10
+                },
+                {
+                    date: '2014-02-01',
+                    amount: 20
+                },
+                {
+                    date: '2014-03-01',
+                    amount: 40
+                },
+                {
+                    date: '2014-04-01',
+                    amount: 80
+                }
+            ];
+
+        console.log(d3.min(numbers));
+        // 1
+
+        d3.max(data, function (d, i) {
+            return d.amount
+        });
+        // 80
+
+        console.log(d3.extent(numbers));
+        // [1, 10]
+
+        var width = 400,
+            height = 400;
+
+        var svg = d3.select('body')
+            .append('svg') // create an <svg> element
+            .attr("width", width)
+            .attr("height", height);
+
+        var x_scale = d3.scaleTime()
+            .domain([
+                new Date(Date.parse('2014-01-01')),
+                new Date(Date.parse('2014-04-01'))
+            ])
+            .range([0, width - 100]);
+
+        max_y_domain = d3.max(data, function (d, i) {
+            return d.amount
+        });
+
+        var y_scale = d3.scaleLinear()
+            .domain([0, 80]) // $0 to $80
+            .range([height / 2, 0]); // Seems backwards because SVG is y-down
+
+        // Or, using the helper functions 
+        //      y.domain(d3.extent(data, function(d) { return d.amount }));
+
+        // This scale object y is also a function! Calling the scale as a function 
+        // is how we translate values from one coordinate to another.
+
+        //console.log(y(0)); // in: $0
+        // 200  // out: 200px (bottom of graph)
+        //console.log(y(80)); // in: $80
+        // 0    // out: 0px (top of graph)
+
+        //We can even do the same things with dates!
+
+        
+
+        //x(new Date(Date.parse('2014-02-01')));
+        // 103.3811949976841
+
+        // x is the d3.scaleTime()
+        var x_axis = d3.axisBottom()
+            .scale(x_scale)
+            .ticks(4); // specify the number of ticks
+
+        var y_axis = d3.axisLeft()
+            .scale(y_scale);
+
+
+        svg.append('g') // create a <g> element
+            //.attr('class', 'y axis') // specify classes
+            .attr("transform", "translate(50, 10)")
+            .call(y_axis); // let the axis do its thing
+
+
+        var x_axis_translate = height / 2 + 10;
+
+        svg.append('g') // create a <g> element
+            .attr("transform", "translate(50, " + x_axis_translate + ")")
+            //.attr('class', 'x axis') // specify classes
+            .call(x_axis); // let the axis do its thing
+    </script>
+
+</body>
+
+</html>

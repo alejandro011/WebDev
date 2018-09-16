@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TITLE GOES HERE</title>
+    <link type="text/css" rel="stylesheet" href="style.css"></link>
+    <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+    <script type="text/javascript" src="d3/d3.min.js"></script>
+</head>
+
+<body>
+    <h1>MAIN CONTENT GOES HERE</h1>
+
+    <div>
+        <p>Normal paragraph</p>
+
+        <p class="red">Red paragraph</p>
+    </div>
+
+    <ol>
+        <li id="some-id">Unique element</li>
+        <li>Another list element</li>
+        <li>
+            <p>Paragraph inside list element</p>
+            <p>Second paragraph</p>
+        </li>
+    </ol>
+
+    <h1 id="click-me">
+        Click on me!
+    </h1>
+
+    <p class="hover-me">
+        Hover over me!
+    </p>
+
+    <p class="hover-me">
+        OK now hover over here!
+    </p>
+
+    <p class="hover-me">
+        Hover here too!
+    </p>
+
+    <svg width="300" height="180">
+        <circle cx="30" cy="50" r="25" />
+        <circle cx="90" cy="50" r="25" class="red" />
+        <circle cx="150" cy="50" r="25" class="fancy" />
+
+        <rect x="10" y="80" width="40" height="40" fill="steelBlue" />
+        <rect x="70" y="80" width="40" height="40" style="fill: steelBlue" />
+        <rect x="130" y="80" width="40" height="40" class="fancy" />
+    </svg>
+
+    <svg width="300" height="180">
+        <g transform="translate(5, 15)">
+            <text x="0" y="0">Howdy!</text>
+        </g>
+
+        <g transform="translate(5, 55)">
+            <!-- M: move to (jump)
+               L: line to
+               Q: curve to (quadratic) -->
+            <path d="M0,50 L50,0 Q100,0 100,50" fill="none" stroke-width="3" stroke="black" />
+        </g>
+
+        <g class="hover-me" transform="translate(5, 105)">
+            <!-- C: curve to (cubic)
+               Z: close shape -->
+            <path d="M0,100 C0,0 25,0 125,100 Z" fill="black" />
+        </g>
+    </svg>
+
+    <script>
+        // DOM API
+        console.log(document.getElementById('some-id'));
+        // <li id="some-id">Unique element</li>
+        console.log(document.getElementsByTagName('p').length);
+        // 4
+        var reds = document.getElementsByClassName('red');
+        // [<p class="red">Red paragraph</p>]
+        console.log(reds);
+
+        console.log(reds[0].innerText);
+        // "Red paragraph"
+
+        // D3 Selection API
+        console.log(d3.select('p').size()); // select() only finds one
+        // 1
+        console.log(d3.selectAll('p').size()); // selectAll() finds all
+        // 4
+        var reds = d3.selectAll('.red');
+        // [ > Array[1] ]
+        console.log(reds.text());
+        // "Red paragraph"
+
+        // DOM API
+        var clickMe = document.getElementById('click-me');
+        clickMe.onclick = function () {
+            if (this.style.backgroundColor) {
+                console.log(this.style.backgroundColor);
+                this.style.backgroundColor = '';
+            } else {
+                console.log(this.style.backgroundColor);
+                this.style.backgroundColor = 'red';
+            }
+        }
+
+        // D3 Selection API. Note: it attaches the
+        // callbacks to each element in the selection
+        d3.selectAll('.hover-me')
+            .on('mouseover', function () {
+                this.style.backgroundColor = 'yellow';
+                //this.fill = 'yellow';
+            })
+            .on('mouseleave', function () {
+                this.style.backgroundColor = '';
+            });
+    </script>
+
+</body>
+
+</html>

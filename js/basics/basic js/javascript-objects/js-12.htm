@@ -1,0 +1,30 @@
+<p>js-12.htm</p>
+<script type="text/javascript">
+try {
+    x = y  + 1;
+    console.log(x);
+} 
+catch(erval) {
+    console.log('Oops - Sorry');
+    console.dir(erval);
+}
+finally {
+    console.log('Always runs');
+}
+
+/*
+Oops - Sorry 
+
+ReferenceError: y is not defined at Object.
+<anonymous> (/Users/alejandro/Desktop/test.js:2:5) at Module._compile (internal/modules/cjs/loader.js:702:30) 
+    at Object.Module._extensions..js
+    (internal/modules/cjs/loader.js:713:10) at Module.load (internal/modules/cjs/loader.js:612:32) at tryModuleLoad 
+    (internal/modules/cjs/loader.js:551:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:543:3) at Function.Module.runMain 
+    (internal/modules/cjs/loader.js:744:10)
+    at startup (internal/bootstrap/node.js:238:19) at bootstrapNodeJSCore (internal/bootstrap/node.js:572:3)
+    
+Always runs
+*/
+
+</script>

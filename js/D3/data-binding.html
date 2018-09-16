@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>d3-data-binding</title>
+    <link type="text/css" rel="stylesheet" href="style.css"></link>
+    <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+    <script type="text/javascript" src="d3/d3.min.js"></script>
+</head>
+
+<body>
+
+    <ul> Methods Descriptions:
+        <li>
+            <b>data()</b> Joins data to the selected elements
+        </li>
+        <li>
+            <b> enter()</b> Creates a selection with placeholder references for missing elements
+        </li>
+        <li>
+            <b>exit()</b> Removes nodes and adds them to the exit selection which can be later removed from the DOM
+        </li>
+        <li>
+            <b>datum()</b> Injects data to the selected element without computing a join.
+        </li>
+    </ul>
+
+    <p>
+        D3 Tutorials
+    </p>
+
+    <p> </p>
+
+    <p> </p>
+    <p> </p>
+    <p> </p>
+
+    <p> D3 Tutorials
+    </p>
+    <p>
+    </p>
+    <p>
+    </p>
+
+
+
+    <script>
+        var myData = ["Hello World..."];
+
+        var p = d3.select("body")
+            .selectAll("p")
+            .data(myData)
+            .text(function (d) {
+                return d;
+            });
+
+
+        // The above example will not display anything as data() function requires an array
+        var myData = 100;
+
+        var p = d3.select("body")
+            .selectAll("p")
+            .data(myData)
+            .text(function (d, i) {
+                return d;
+            });
+
+        var myData = ["Hello World!", "Hello D3", "Hello JavaScript"];
+
+        var p = d3.select("body")
+            .selectAll("p")
+            .data(myData)
+            .text(function (d, i) {
+                return d;
+            });
+
+        var myData = [1, 2, 3, 4, 5];
+
+        var p = d3.select("body")
+            .selectAll("p")
+            .data(myData)
+            .text(function (d, i) {
+                return d;
+            });
+
+        /*
+        var data1 = [4, 1, 6, 2, 8, 9];
+        var body1 = d3.select("body")
+            .selectAll("span")
+            .data(data1)
+            .enter()
+            .append("span")
+            .text(function (d) {
+                return d + " ";
+            }); */
+
+        var data2 = [4, 1, 6, 2, 8, 9];
+        var body2 = d3.select("body")
+            .selectAll("span")
+            .data(data2)
+            .enter()
+            .append("span")
+            .style('color', function (d) {
+                if (d % 2 === 0) {
+                    return "green";
+                } else {
+                    return "red";
+                }
+            })
+            .text(function (d) {
+                return d + " ";
+            });
+
+        var matrix = [
+            [1, 2, 3, 4],
+            [5, 6, 7, 8],
+            [9, 10, 11, 12],
+            [13, 14, 15, 16]
+        ];
+
+        var tr = d3.select("body")
+            .append("table") // adds <table>
+            .selectAll("tr") // selects all <tr>
+            .data(matrix) // joins matrix array 
+            .enter() // create placeholders for each row in the array
+            .append("tr"); // create <tr> in each placeholder
+
+        var td = tr.selectAll("td")
+            .data(function (d) { // joins inner array of each row
+                console.log(d);
+                return d;
+            })
+            .enter() // create placeholders for each element in an inner array
+            .append("td") // creates <td> in each placeholder
+            .text(function (d) {
+                console.log(d);
+                return d; // add value of each inner array as a text in <td>
+            });
+
+
+        var myData = ["Hello World!"];
+
+        var p = d3.select("body")
+            .selectAll("p")
+            .data(myData)
+            .text(function (d, i) {
+                return d;
+            })
+            .exit()
+            .remove();
+    </script>
+
+</body>
+
+</html>
